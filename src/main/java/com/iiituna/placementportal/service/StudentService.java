@@ -14,19 +14,25 @@ public class StudentService {
 
     private final StudentRepository studentRepository;
 
-    public Student createStudent(StudentRequestDto dto) {
+    public List<Student> createStudents(List<StudentRequestDto> dtos) {
 
-        Student student = Student.builder()
-                .name(dto.getName())
-                .email(dto.getEmail())
-                .rollNumber(dto.getRollNumber())
-                .branch(dto.getBranch())
-                .cgpa(dto.getCgpa())
-                .graduationYear(dto.getGraduationYear())
-                .phoneNumber(dto.getPhoneNumber())
-                .build();
+        List<Student> students = dtos.stream()
+                .map(dto -> Student.builder()
+                        .rollNumber(dto.getRollNumber())
+                        .studentName(dto.getStudentName())
+                        .branch(dto.getBranch())
+                        .remark(dto.getRemark())
+                        .companyName(dto.getCompanyName())
+                        .payPackage(dto.getPayPackage())
+                        .designation(dto.getDesignation())
+                        .campusType(dto.getCampusType())
+                        .multipleOffers(dto.getMultipleOffers())
+                        .additionalCompanies(dto.getAdditionalCompanies())
+                        .additionalPayPackage(dto.getAdditionalPayPackage())
+                        .build())
+                .toList();
 
-        return studentRepository.save(student);
+        return studentRepository.saveAll(students);
     }
 
     public List<Student> getAllStudents() {

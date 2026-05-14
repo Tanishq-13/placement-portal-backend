@@ -1,6 +1,5 @@
 package com.iiituna.placementportal.model;
 
-import com.iiituna.placementportal.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,25 +16,25 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-
-    private String password;
-
-    @Column(unique = true)
-    private String email;
-
     private String rollNumber;
+
+    private String studentName;
 
     private String branch;
 
-    private Double cgpa;
+    private String remark;
 
-    private Integer graduationYear;
+    private String companyName;
 
-    private String phoneNumber;
+    private Double payPackage;
 
-    private Boolean placed = false;
+    private String designation;
 
-    @Enumerated(EnumType.STRING)
-    private Role role = Role.STUDENT;
+    private String campusType;
+
+    private String multipleOffers;
+
+    private String additionalCompanies;
+
+    private Double additionalPayPackage;
 }

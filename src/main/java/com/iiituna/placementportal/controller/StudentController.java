@@ -15,9 +15,9 @@ public class StudentController {
 
     private final StudentService studentService;
 
-    @PostMapping
-    public Student createStudent(@RequestBody StudentRequestDto dto) {
-        return studentService.createStudent(dto);
+    @PostMapping("/bulk")
+    public List<Student> createStudents(@RequestBody List<StudentRequestDto> dtos) {
+        return studentService.createStudents(dtos);
     }
 
     @GetMapping
