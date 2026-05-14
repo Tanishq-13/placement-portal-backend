@@ -37,4 +37,8 @@ public class Student {
     private String additionalCompanies;
 
     private Double additionalPayPackage;
+
+    private String email;
+
+    private String password;
 }
